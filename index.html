@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hem Anil Vagh 💘</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffc0cb, #ff9aa2);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  max-width: 400px;
+}
+
+h1 {
+  color: #ff4d6d;
+  font-size: 26px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background-color: #666;
+  color: white;
+}
+
+#gif {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: float 4s linear infinite;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/wav">
+</audio>
+
+<div class="card">
+<img id="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+<h1>Hem Anil Vagh,<br>Will you be my Valentine? 🥺💖</h1>
+</div>
+
+<button id="yes">Yes 💘</button>
+<button id="no">No 🙈</button>
+
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+
+let scale = 1;
+
+function moveNo() {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+
+  scale += 0.15;
+  yes.style.transform = "scale(" + scale + ")";
+}
+
+no.addEventListener("mouseover", moveNo);
+no.addEventListener("touchstart", moveNo);
+
+yes.addEventListener("click", () => {
+
+  for (let i = 0; i < 50; i++) {
+    const heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
+
+  setTimeout(() => {
+    window.location.href = "https://www.instagram.com/stories/_rakesh_verma_/3831433402340491575?utm_source=ig_story_item_share&igsh=ZWI1bXFwbzhxYTFx";
+  }, 2500);
+
+});
+
+// initial positions
+yes.style.left = "40%";
+yes.style.top = "65%";
+
+no.style.left = "60%";
+no.style.top = "65%";
+</script>
+
+</body>
+</html>
